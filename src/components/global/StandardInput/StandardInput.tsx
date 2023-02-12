@@ -13,7 +13,11 @@ const StandardInput: React.FC<IStandardInputProps> = ({ labelPosition, labelText
         onChange={onChange}
       />
       {labelPosition === 'bottom' && (
-        <label htmlFor={inputId} className='mt-4'>{labelText}</label>
+        <label htmlFor={inputId} 
+          className='mt-4'
+        >
+          {labelText}
+        </label>
       )}
     </div>
   )

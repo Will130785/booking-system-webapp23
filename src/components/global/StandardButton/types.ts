@@ -1,3 +1,4 @@
 export interface IStandardButtonProps {
-  buttonText: string
+  buttonText: string,
+  onClick(): void
 }

@@ -1,14 +1,30 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Card from '../global/Card/Card'
 import StandardInput from '../global/StandardInput/StandardInput'
 import StandardButton from '../global/StandardButton/StandardButton'
-import { useFormFields } from '../global/StandardInput/hooks'
+import { useFormFields } from '../../hooks/handleForms'
+import { handleRegister } from './helpers'
 
 const RegisterMain = () => {
-  const [fields, setFormValues] = useFormFields({ username: '', password: '', confirmPassword: '' })
+  const [fields, setFormValues, handleSubmit, response, setFormErrors, errors] = useFormFields({ username: '', password: '', confirmPassword: '' }, handleRegister)
   useEffect(() => {
-    console.log(fields)
+    setFormErrors(() => {
+      const errors: any = {}
+      if (!fields.username) {
+        errors.username = 'Username required'
+      }
+      if (!fields.password) {
+        errors.password = 'PAssword required'
+      }
+      if (!fields.confirmPassword) {
+        errors.confirmPassword = 'Confirm Password required'
+      }
+      return errors
+    })
   }, [fields])
+  useEffect(() => {
+    console.log(errors, 'ERRORS')
+  }, [errors])
   return (
     <div className='h-full w-full flex justify-center items-center'>
       <Card 
@@ -22,6 +38,7 @@ const RegisterMain = () => {
             inputId='username'
             onChange={setFormValues}
           />
+          {errors && errors.username && <p>Username is required</p>}
           <StandardInput 
             labelPosition='top'
             labelText='Password'
@@ -29,6 +46,7 @@ const RegisterMain = () => {
             inputId='password'
             onChange={setFormValues}
           />
+          {errors && errors.password && <p>Password is required</p>}
           <StandardInput 
             labelPosition='top'
             labelText='Confirm Password'
@@ -36,9 +54,14 @@ const RegisterMain = () => {
             inputId='confirmPassword'
             onChange={setFormValues}
           />
+          {errors && errors.confirmPassword && <p>Confirm password is required</p>}
           <StandardButton 
             buttonText='Register'
+            onClick={handleSubmit}
           />
+          {response && response.data && (
+            <p>{response.data}</p>
+          )}
         </div>
       </Card>
     </div>
