@@ -22,9 +22,6 @@ const RegisterMain = () => {
       return errors
     })
   }, [fields])
-  useEffect(() => {
-    console.log(errors, 'ERRORS')
-  }, [errors])
   return (
     <div className='h-full w-full flex justify-center items-center'>
       <Card 
