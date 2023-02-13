@@ -4,12 +4,13 @@ import StandardInput from '../global/StandardInput/StandardInput'
 import StandardButton from '../global/StandardButton/StandardButton'
 import { useFormFields } from '../../hooks/handleForms'
 import { handleRegister } from './helpers'
+import { IRegisterFormFields } from './types'
 
 const RegisterMain = () => {
   const [fields, setFormValues, handleSubmit, response, setFormErrors, errors] = useFormFields({ username: '', password: '', confirmPassword: '' }, handleRegister)
   useEffect(() => {
     setFormErrors(() => {
-      const errors: any = {}
+      const errors: IRegisterFormFields = {}
       if (!fields.username) {
         errors.username = 'Username required'
       }
@@ -57,7 +58,7 @@ const RegisterMain = () => {
             onClick={handleSubmit}
           />
           {response && response.data && (
-            <p>{response.data}</p>
+            <p>{response.data.message}</p>
           )}
         </div>
       </Card>

@@ -1,8 +1,9 @@
 import authService from '../../services/authService'
 const registerUser = authService.registerUser
 import { IResponseError } from '../../types/Errors'
+import { IRegisterFormFields } from './types'
 
-export const handleRegister = async (fields: any) => {
+export const handleRegister = async (fields: IRegisterFormFields) => {
   try {
     const res = await registerUser(fields)
     if (res && res.data) {

@@ -1,5 +1,7 @@
 export interface IResponseError {
   response: {
-    data: string
+    data: {
+      message: string
+    }
   }
 }

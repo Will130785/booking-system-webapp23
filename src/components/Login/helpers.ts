@@ -1,12 +1,14 @@
 import authService from '../../services/authService'
-const registerUser = authService.registerUser
+const loginUser = authService.loginUser
 import { IResponseError } from '../../types/Errors'
+import { ILoginFormFields } from './types'
 
-export const handleLogin = async (fields: any) => {
+export const handleLogin = async (fields: ILoginFormFields) => {
   try {
-    const res = await registerUser(fields)
+    const res = await loginUser(fields)
     if (res && res.data) {
-      console.log('successfully added new user')
+      // save token to local storage and store
+      localStorage.setItem('token', res.data.token)
       return {
         success: true,
         data: res.data
