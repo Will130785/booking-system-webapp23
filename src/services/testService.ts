@@ -2,8 +2,12 @@ import mainHttpInstance from './httpMain'
 import { AxiosResponse } from 'axios'
 
 class testService {
-  testGet (): Promise<AxiosResponse> {
-    return mainHttpInstance.get('/')
+  testGet (token: string): Promise<AxiosResponse> {
+    return mainHttpInstance.get('/test', {
+      headers: {
+        token: token
+      }
+    })
   }
 }
 
