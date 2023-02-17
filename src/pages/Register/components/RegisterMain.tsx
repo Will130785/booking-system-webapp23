@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
-import Card from '../global/Card/Card'
-import StandardInput from '../global/StandardInput/StandardInput'
-import StandardButton from '../global/StandardButton/StandardButton'
-import { useFormFields } from '../../hooks/handleForms'
-import { handleRegister } from './helpers'
-import { IRegisterFormFields } from './types'
+import Card from '../../../components/global/Card/Card'
+import StandardInput from '../../../components/global/StandardInput/StandardInput'
+import StandardButton from '../../../components/global/StandardButton/StandardButton'
+import { useFormFields } from '../../../hooks/handleForms'
+import { handleRegister } from '../helpers'
+import { IRegisterFormFields } from '../types'
 
 const RegisterMain = () => {
   const [fields, setFormValues, handleSubmit, response, setFormErrors, errors] = useFormFields({ username: '', password: '', confirmPassword: '' }, handleRegister)

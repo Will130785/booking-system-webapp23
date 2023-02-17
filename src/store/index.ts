@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 import testSlice from './testSlice'
 import authSlice from './authSlice'
+import navigationSlice from '../components/navigation/navigationSlice'
 
 export const store = configureStore({
   reducer: {
     test: testSlice.reducer,
-    auth: authSlice.reducer
+    auth: authSlice.reducer,
+    navigation: navigationSlice.reducer
   }
 })
 

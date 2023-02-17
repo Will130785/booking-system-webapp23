@@ -1,5 +1,5 @@
-import testService from '../../services/testService'
-import { useAppSelector } from '../../store/hooks'
+import testService from '../../../services/testService'
+import { useAppSelector } from '../../../store/hooks'
 
 const DashboardMain = () => {
   const token = useAppSelector((state) => state.auth.token)

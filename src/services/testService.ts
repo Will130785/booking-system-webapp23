@@ -5,7 +5,7 @@ class testService {
   testGet (token: string): Promise<AxiosResponse> {
     return mainHttpInstance.get('/test', {
       headers: {
-        token: token
+        Authorization: `Bearer ${token}`
       }
     })
   }

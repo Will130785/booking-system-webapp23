@@ -1,12 +1,12 @@
 import { useEffect } from 'react'
-import Card from '../global/Card/Card'
-import StandardInput from '../global/StandardInput/StandardInput'
-import StandardButton from '../global/StandardButton/StandardButton'
-import { useFormFields } from '../../hooks/handleForms'
-import { handleLogin } from './helpers'
-import { useAppDispatch } from '../../store/hooks'
-import { loginUserAction } from '../../store/authSlice'
-import { ILoginFormFields } from './types'
+import Card from '../../../components/global/Card/Card'
+import StandardInput from '../../../components/global/StandardInput/StandardInput'
+import StandardButton from '../../../components/global/StandardButton/StandardButton'
+import { useFormFields } from '../../../hooks/handleForms'
+import { handleLogin } from '../helpers'
+import { useAppDispatch } from '../../../store/hooks'
+import { loginUserAction } from '../../../store/authSlice'
+import { ILoginFormFields } from '../types'
 
 const LoginMain = () => {
   const [

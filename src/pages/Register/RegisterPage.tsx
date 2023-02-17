@@ -1,4 +1,4 @@
-import RegisterMain from '../../components/Register/RegisterMain'
+import RegisterMain from './components/RegisterMain'
 
 const RegisterPage = () => {
   return <RegisterMain />
