@@ -9,7 +9,7 @@ const MainLayout: React.FC<IMainLayoutProps> = ({ children }) => {
       text: 'Add Booking'
     },
     {
-      path: 'add-booking',
+      path: 'all-bookings',
       text: 'Bookings'
     },
     {

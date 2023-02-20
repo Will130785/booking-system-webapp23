@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom'
 import RegisterPage from '../pages/Register/RegisterPage'
 import DashboardPage from '../pages/Dashboard/DashboardPage'
 import AddBookingPage from '../pages/AddBookingPage/AddBookingPage'
+import BookingsPage from '../pages/BookingsPage/BookingsPage'
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: '/add-booking',
     element: <AddBookingPage />
+  },
+  {
+    path: '/all-bookings',
+    element: <BookingsPage />
   }
 ])
 
