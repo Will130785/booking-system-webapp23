@@ -5,19 +5,19 @@ import SideBarMain from '../navigation/SideBarMain/SideBarMain'
 const MainLayout: React.FC<IMainLayoutProps> = ({ children }) => {
   const links = [
     {
-      path: 'add-booking',
+      path: '/add-booking',
       text: 'Add Booking'
     },
     {
-      path: 'all-bookings',
+      path: '/all-bookings',
       text: 'Bookings'
     },
     {
-      path: 'add-booking',
+      path: '/add-booking',
       text: 'Reminders'
     },
     {
-      path: 'add-booking',
+      path: '/add-booking',
       text: 'Archives'
     }
   ]
