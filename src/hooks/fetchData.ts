@@ -9,7 +9,7 @@ export const useFetchData = (dataHandler: any) => {
     console.log('getting data')
     try {
         console.log(id, 'ID')
-      const res = await dataHandler(id)
+      let res = await dataHandler(id)
       if (res && res.data) {
         setData(res.data)
       } else {

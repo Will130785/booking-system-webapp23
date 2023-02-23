@@ -15,12 +15,17 @@ const ViewBookingPage = () => {
     setId(params.id)
   }, [])
   useEffect(() => {
-    console.log(id)
-    getData()
+    console.log(id, 'TEST')
+    if (id) {
+      getData()
+    }
   }, [id])
+  useEffect(() => {
+    console.log(data, 'TEST')
+  }, [data])
   return (
     <MainLayout>
-      <ViewBookingPageMain />
+      <ViewBookingPageMain booking={data} />
     </MainLayout>
   )
 }
