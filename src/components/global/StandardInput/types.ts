@@ -3,5 +3,6 @@ export interface IStandardInputProps {
   labelText: string,
   inputType: string,
   inputId: string,
-  onChange(): void
+  onChange(): void,
+  value: string
 }

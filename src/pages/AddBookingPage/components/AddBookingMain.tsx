@@ -27,6 +27,7 @@ const AddBookingMain = () => {
     <div className='h-full w-full flex justify-center items-center'>
       <Card 
         cardTitle='Add New Booking'
+        width="w-3/6"
       >
         <div>
           <StandardInput 
@@ -35,6 +36,7 @@ const AddBookingMain = () => {
             inputType='text'
             inputId='clientName'
             onChange={setFormValues}
+            value={fields.clientName}
           />
           {errors && errors.clientName && <p>Client name is required</p>}
           <StandardInput 
@@ -43,6 +45,7 @@ const AddBookingMain = () => {
             inputType='text'
             inputId='description'
             onChange={setFormValues}
+            value={fields.description}
           />
           {errors && errors.description && <p>Description is required</p>}
           <StandardInput 
@@ -51,6 +54,7 @@ const AddBookingMain = () => {
             inputType='text'
             inputId='worker'
             onChange={setFormValues}
+            value={fields.worker}
           />
           {errors && errors.worker && <p>Worker is required</p>}
           <StandardButton 

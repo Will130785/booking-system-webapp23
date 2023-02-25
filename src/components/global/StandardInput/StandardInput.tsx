@@ -1,6 +1,6 @@
 import { IStandardInputProps } from './types'
 
-const StandardInput: React.FC<IStandardInputProps> = ({ labelPosition, labelText, inputType, inputId, onChange }) => {
+const StandardInput: React.FC<IStandardInputProps> = ({ labelPosition, labelText, inputType, inputId, onChange, value }) => {
   return (
     <div className='flex flex-col mb-4 mt-4'>
       {labelPosition === 'top' && (
@@ -11,6 +11,7 @@ const StandardInput: React.FC<IStandardInputProps> = ({ labelPosition, labelText
         className='bg-slate-50 p-4'
         id={inputId}
         onChange={onChange}
+        value={value}
       />
       {labelPosition === 'bottom' && (
         <label htmlFor={inputId} 

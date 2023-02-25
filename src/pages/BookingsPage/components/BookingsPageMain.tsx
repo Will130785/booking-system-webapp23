@@ -8,7 +8,9 @@ const BookingsPageMain: React.FC<IBookingsPageProps> = ({ bookings }) => {
       <ul>
         {bookings && bookings.length && bookings.map((booking, index) => (
           <Link key={`booking-${index}`} to={`/view-booking/${booking._id}`}>
-            <Card cardTitle={booking.clientName}>
+            <Card cardTitle={booking.clientName}
+              width="w-3/12"
+            >
               <li>{booking.description}</li>
             </Card>
           </Link>

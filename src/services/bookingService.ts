@@ -2,7 +2,7 @@ import { AxiosResponse } from 'axios'
 import mainHttpInstance from './httpMain'
 
 class BookingService {
-  addBooking (data: any): Promise<AxiosResponse> {
+  addBooking (data: {}): Promise<AxiosResponse> {
     return mainHttpInstance.post('/add-booking', data, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token') ? localStorage.getItem('token') : ''}`
@@ -23,10 +23,20 @@ class BookingService {
       }
     })
   }
-  editBooking (data: any, id: string): Promise<AxiosResponse> {
+  editBooking (data: {}, id: string): Promise<AxiosResponse> {
     return mainHttpInstance.put(`/edit-booking/${id}`, data, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token') ? localStorage.getItem('token') : ''}`
+        }
+      })
+  }
+  deleteBooking (id: string): Promise<AxiosResponse> {
+    return mainHttpInstance.delete(`/delete-booking/${id}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token') ? localStorage.getItem('token') : ''}`
+        },
+        data: {
+          id: id
         }
       })
   } 

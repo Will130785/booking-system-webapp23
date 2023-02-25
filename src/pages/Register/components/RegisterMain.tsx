@@ -27,6 +27,7 @@ const RegisterMain = () => {
     <div className='h-full w-full flex justify-center items-center'>
       <Card 
         cardTitle='Register User'
+        width="w-3/6"
       >
         <div>
           <StandardInput 
@@ -35,6 +36,7 @@ const RegisterMain = () => {
             inputType='text'
             inputId='username'
             onChange={setFormValues}
+            value={fields.username}
           />
           {errors && errors.username && <p>Username is required</p>}
           <StandardInput 
@@ -43,6 +45,7 @@ const RegisterMain = () => {
             inputType='password'
             inputId='password'
             onChange={setFormValues}
+            value={fields.password}
           />
           {errors && errors.password && <p>Password is required</p>}
           <StandardInput 
@@ -51,6 +54,7 @@ const RegisterMain = () => {
             inputType='password'
             inputId='confirmPassword'
             onChange={setFormValues}
+            value={fields.confirmPassword}
           />
           {errors && errors.confirmPassword && <p>Confirm password is required</p>}
           <StandardButton 

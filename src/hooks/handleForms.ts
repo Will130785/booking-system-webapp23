@@ -24,6 +24,10 @@ export const useFormFields = (initialState: {}, handleSubmitCallback: handleSubm
     setValues({ ...fields, [event.target.id]: event.target.value })
   }
 
+  const setInitialFormValues = (initialValues: {}) => {
+    setValues(initialValues)
+  }
+
   const setFormErrors = (validation: validationType) => {
     const errorObj = validation()
 
@@ -34,5 +38,5 @@ export const useFormFields = (initialState: {}, handleSubmitCallback: handleSubm
     }
   }
 
-  return [fields, setFormValues, handleSubmit, response, setFormErrors, errors, setBookingId, bookingId]
+  return [fields, setFormValues, handleSubmit, response, setFormErrors, errors, setBookingId, bookingId, setInitialFormValues]
 }

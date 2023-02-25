@@ -49,6 +49,7 @@ const LoginMain = () => {
     <div className='h-full w-full flex justify-center items-center'>
       <Card
         cardTitle='Login'
+        width="w-3/6"
       >
         <div>
           <StandardInput 
@@ -57,6 +58,7 @@ const LoginMain = () => {
             inputType='text'
             inputId='username'
             onChange={setFormValues}
+            value={fields.username}
           />
           {errors && errors.username && <p>Username is required</p>}
           <StandardInput 
@@ -65,6 +67,7 @@ const LoginMain = () => {
             inputType='password'
             inputId='password'
             onChange={setFormValues}
+            value={fields.password}
           />
           {errors && errors.password && <p>Password is required</p>}
           <StandardButton 

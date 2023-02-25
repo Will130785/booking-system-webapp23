@@ -5,6 +5,10 @@ import SideBarMain from '../navigation/SideBarMain/SideBarMain'
 const MainLayout: React.FC<IMainLayoutProps> = ({ children }) => {
   const links = [
     {
+      path: '/',
+      text: 'Home'
+    },
+    {
       path: '/add-booking',
       text: 'Add Booking'
     },
@@ -25,7 +29,7 @@ const MainLayout: React.FC<IMainLayoutProps> = ({ children }) => {
     <div>
       <TopBarMain />
       <SideBarMain links={links} />
-      <main>
+      <main className='p-5'>
         {children}
       </main>
     </div>

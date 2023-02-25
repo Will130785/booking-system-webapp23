@@ -6,10 +6,15 @@ import { useFormFields } from '../../../hooks/handleForms'
 import { handleEditBooking } from '../helpers'
 import { IEditBookingFormFields } from '../types'
 import { useParams } from 'react-router-dom'
+import { useFetchData } from '../../../hooks/fetchData'
+import bookingService from '../../../services/bookingService'
+const getBooking = bookingService.getBooking
 
 const EditBookingMain = () => {
-  const [fields, setFormValues, handleSubmit, response, setFormErrors, errors, setBookingId] = useFormFields({ clientName: '', description: '', worker: '' }, handleEditBooking)
-  const { id } = useParams()
+  const [data, setData, error, setError, getData, setId, id] = useFetchData(getBooking)
+  const [fields, setFormValues, handleSubmit, response, setFormErrors, errors, setBookingId, bookingId, setInitialFormValues] = useFormFields({ clientName: '', description: '', worker: '' }, handleEditBooking)
+  const params = useParams()
+  const idParams = params.id
   useEffect(() => {
     setFormErrors(() => {
       const errors: IEditBookingFormFields = {}
@@ -26,12 +31,25 @@ const EditBookingMain = () => {
     })
   }, [fields])
   useEffect(() => {
-    setBookingId(id)
+    setBookingId(idParams)
+    setId(idParams)
   }, [])
+  useEffect(() => {
+    if (id) {
+      getData()
+    }
+  }, [id])
+  useEffect(() => {
+    if (data) {
+      delete data._id
+      setInitialFormValues(data)
+    }
+  }, [data])
   return (
     <div className='h-full w-full flex justify-center items-center'>
       <Card 
         cardTitle='Edit Booking'
+        width="w-3/6"
       >
         <div>
           <StandardInput 
@@ -40,6 +58,7 @@ const EditBookingMain = () => {
             inputType='text'
             inputId='clientName'
             onChange={setFormValues}
+            value={fields.clientName}
           />
           {errors && errors.clientName && <p>Client name is required</p>}
           <StandardInput 
@@ -48,6 +67,7 @@ const EditBookingMain = () => {
             inputType='text'
             inputId='description'
             onChange={setFormValues}
+            value={fields.description}
           />
           {errors && errors.description && <p>Description is required</p>}
           <StandardInput 
@@ -56,6 +76,7 @@ const EditBookingMain = () => {
             inputType='text'
             inputId='worker'
             onChange={setFormValues}
+            value={fields.worker}
           />
           {errors && errors.worker && <p>Worker is required</p>}
           <StandardButton 
