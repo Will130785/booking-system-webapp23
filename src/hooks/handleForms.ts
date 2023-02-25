@@ -5,10 +5,12 @@ export const useFormFields = (initialState: {}, handleSubmitCallback: handleSubm
   const [fields, setValues] = useState(initialState)
   const [response, setResponse] = useState<{} | null>(null)
   const [errors, setErrors] = useState<any>(initialState)
+  const [bookingId, setBookingId] = useState<any>()
 
   const handleSubmit = async (event: React.SyntheticEvent) => {
     if (!errors) {
-      const res = await handleSubmitCallback(fields)
+      console.log(fields, bookingId)
+      const res = await handleSubmitCallback(fields, bookingId)
       console.log(res)
       if (res) {
         setResponse(res)
@@ -32,5 +34,5 @@ export const useFormFields = (initialState: {}, handleSubmitCallback: handleSubm
     }
   }
 
-  return [fields, setFormValues, handleSubmit, response, setFormErrors, errors]
+  return [fields, setFormValues, handleSubmit, response, setFormErrors, errors, setBookingId, bookingId]
 }

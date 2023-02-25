@@ -4,6 +4,7 @@ import DashboardPage from '../pages/Dashboard/DashboardPage'
 import AddBookingPage from '../pages/AddBookingPage/AddBookingPage'
 import BookingsPage from '../pages/BookingsPage/BookingsPage'
 import ViewBookingPage from '../pages/ViewBookingPage/ViewBookingPage'
+import EditBookingPage from '../pages/EditBookingPage/EditBookingPage'
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: '/view-booking/:id',
     element: <ViewBookingPage />
+  },
+  {
+    path: '/edit-booking/:id',
+    element: <EditBookingPage />
   }
 ])
 

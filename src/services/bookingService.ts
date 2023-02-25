@@ -16,13 +16,19 @@ class BookingService {
       }
     })
   }
-
   getBooking (id: string): Promise<AxiosResponse> {
     return mainHttpInstance.get(`/view-booking/${id}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token') ? localStorage.getItem('token') : ''}`
       }
     })
+  }
+  editBooking (data: any, id: string): Promise<AxiosResponse> {
+    return mainHttpInstance.put(`/edit-booking/${id}`, data, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token') ? localStorage.getItem('token') : ''}`
+        }
+      })
   } 
 }
 

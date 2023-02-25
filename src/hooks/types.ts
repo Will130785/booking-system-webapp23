@@ -6,7 +6,7 @@ export type handleSubmitCallbackType = {
     clientName?: string,
     description?: string,
     worker?: string
-  }): Promise<{ success: boolean; data: any; } | undefined>    
+  }, id: string): Promise<{ success: boolean; data: any; } | undefined>    
 }
 
 export type validationType = {
