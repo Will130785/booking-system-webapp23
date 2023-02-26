@@ -4,14 +4,12 @@ import { handleSubmitCallbackType, validationType } from './types'
 export const useFormFields = (initialState: {}, handleSubmitCallback: handleSubmitCallbackType) => {
   const [fields, setValues] = useState(initialState)
   const [response, setResponse] = useState<{} | null>(null)
-  const [errors, setErrors] = useState<any>(initialState)
-  const [bookingId, setBookingId] = useState<any>()
+  const [errors, setErrors] = useState<{} | null>(initialState)
+  const [bookingId, setBookingId] = useState<string>()
 
-  const handleSubmit = async (event: React.SyntheticEvent) => {
+  const handleSubmit = async () => {
     if (!errors) {
-      console.log(fields, bookingId)
-      const res = await handleSubmitCallback(fields, bookingId)
-      console.log(res)
+      const res = await handleSubmitCallback(fields, bookingId as string)
       if (res) {
         setResponse(res)
       }
@@ -38,5 +36,5 @@ export const useFormFields = (initialState: {}, handleSubmitCallback: handleSubm
     }
   }
 
-  return [fields, setFormValues, handleSubmit, response, setFormErrors, errors, setBookingId, bookingId, setInitialFormValues]
+  return { fields, setFormValues, handleSubmit, response, setFormErrors, errors, setBookingId, bookingId, setInitialFormValues }
 }

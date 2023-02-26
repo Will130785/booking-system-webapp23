@@ -1,31 +1,36 @@
 import { useEffect } from 'react'
 import MainLayout from '../../components/layouts/MainLayout'
-import ViewBookingPageMain from './components/ViewBookingPageMain'
 import { useFetchData } from '../../hooks/fetchData'
-import { useParams } from 'react-router-dom'
 import bookingService from '../../services/bookingService'
 const getBooking = bookingService.getBooking
+import { Link, useParams } from 'react-router-dom'
+import { useDeleteData } from '../../hooks/deleteData'
+const deleteBooking = bookingService.deleteBooking
+import { IUseFetchData } from '../../hooks/types'
 
 const ViewBookingPage = () => {
-  const [data, setData, error, setError, getData, setId, id] = useFetchData(getBooking)
+  const { dataItem, getDataItem, setId, id } = useFetchData(undefined, getBooking) as IUseFetchData
+  const { setBookingId, deleteItem } = useDeleteData(deleteBooking, 'booking')
   const params = useParams()
   
   useEffect(() => {
-    console.log(params.id, 'PARAMS')
-    setId(params.id)
+    setId(params.id as string)
+    setBookingId(params.id)
   }, [])
   useEffect(() => {
-    console.log(id, 'TEST')
     if (id) {
-      getData()
+      getDataItem()
     }
   }, [id])
-  useEffect(() => {
-    console.log(data, 'TEST')
-  }, [data])
   return (
     <MainLayout>
-      <ViewBookingPageMain booking={data} />
+      <div>
+      <p>{dataItem && dataItem.clientName}</p>
+      <p>{dataItem && dataItem.description}</p>
+      <p>{dataItem && dataItem.worker}</p>
+      <Link to={`/edit-booking/${id}`}>Edit Booking</Link>
+      <button onClick={deleteItem}>Delete Booking</button>
+    </div>
     </MainLayout>
   )
 }

@@ -8,7 +8,6 @@ export const handleAddBooking = async (fields: IAddBookingFormFields, token?: st
   try {
     const res = await addBooking(fields)
     if (res && res.data) {
-      console.log('successfully added new user')
       return {
         success: true,
         data: res.data
@@ -16,7 +15,6 @@ export const handleAddBooking = async (fields: IAddBookingFormFields, token?: st
     }
   } catch (err) {
     const error: IResponseError = err as IResponseError
-    console.log(error.response.data)
     return {
       success: false,
       data: error.response.data

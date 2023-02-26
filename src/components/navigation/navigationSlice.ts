@@ -14,9 +14,12 @@ const navigationSlice = createSlice({
       } else {
         state.sideBarOpen = true
       }
+    },
+    clearNavStateAction: (state) => {
+      state.sideBarOpen = false
     }
   }
 })
 
-export const { setSideBarOpen } = navigationSlice.actions
+export const { setSideBarOpen, clearNavStateAction } = navigationSlice.actions
 export default navigationSlice

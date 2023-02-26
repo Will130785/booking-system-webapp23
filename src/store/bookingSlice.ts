@@ -10,9 +10,12 @@ const bookingSlice = createSlice({
   reducers: {
     setBookings: (state, action) => {
       state.bookings = action.payload
+    },
+    clearBookingStateAction: (state) => {
+      state.bookings = []
     }
   }
 })
 
-export const { setBookings } = bookingSlice.actions
+export const { setBookings, clearBookingStateAction } = bookingSlice.actions
 export default bookingSlice

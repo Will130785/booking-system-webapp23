@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState: any = {
+const initialState: { token: string | null, user: {} } = {
   token: '',
-  user: ''
+  user: {}
 }
 
 const authSlice = createSlice({
@@ -18,8 +18,12 @@ const authSlice = createSlice({
     },
     loginUserAction: (state, action) => {
       state.token = action.payload.token
+    },
+    clearAuthStateAction: (state) => {
+      state.token = ''
+      state.user = {}
     }
   }
 })
-export const { loginUserAction, initAuth } = authSlice.actions
+export const { loginUserAction, initAuth, clearAuthStateAction } = authSlice.actions
 export default authSlice

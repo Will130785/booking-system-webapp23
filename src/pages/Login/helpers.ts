@@ -16,7 +16,6 @@ export const handleLogin = async (fields: ILoginFormFields) => {
     }
   } catch (err) {
     const error: IResponseError = err as IResponseError
-    console.log(error.response.data)
     return {
       success: false,
       data: error.response.data
