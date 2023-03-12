@@ -5,7 +5,8 @@ class BookingService {
   addBooking (data: {}): Promise<AxiosResponse> {
     return mainHttpInstance.post('/add-booking', data, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token') ? localStorage.getItem('token') : ''}`
+          Authorization: `Bearer ${localStorage.getItem('token') ? localStorage.getItem('token') : ''}`,
+          User: localStorage.getItem('user')
         }
       })
   }

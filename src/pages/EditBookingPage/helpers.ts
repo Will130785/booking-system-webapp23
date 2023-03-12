@@ -9,7 +9,8 @@ export const handleEditBooking = async (fields: IEditBookingFormFields, id: stri
     if (res && res.data) {
       return {
         success: true,
-        data: res.data
+        data: res.data,
+        navigateTo: `/view-booking/${id}`
       }
     }
   } catch (err) {

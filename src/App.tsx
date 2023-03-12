@@ -1,9 +1,10 @@
 import { useEffect } from 'react'
 import { RouterProvider } from 'react-router-dom'
 import router from './routes/mainRouter'
-import LoginPage from './pages/Login/LoginPage'
+import authRouter from './routes/authRouter'
 import { useAppSelector, useAppDispatch } from './store/hooks'
 import { initAuth } from './store/authSlice'
+import StandardAlert from './components/global/Alerts/StandardAlert/StandardAlert'
 
 function App() {
   const dispatch = useAppDispatch()
@@ -12,13 +13,11 @@ function App() {
   useEffect(() => {
     dispatch(initAuth())
   }, [])
-  if (!token) {
-    return <LoginPage />
-  }
 
-  return (
-    <RouterProvider router={router} />
-  )
+  return <>
+    <StandardAlert />
+    <RouterProvider router={token ? router : authRouter} />
+  </>
 }
 
 export default App

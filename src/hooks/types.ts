@@ -50,3 +50,11 @@ export interface IUseFetchData {
   setDataItem(): void, 
   getDataItem(): Promise<void>
 }
+
+export interface ISubmitResponse {
+  success: boolean,
+  data: {
+    message: string
+  },
+  navigateTo: string
+}

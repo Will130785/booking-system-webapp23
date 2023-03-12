@@ -18,6 +18,7 @@ const authSlice = createSlice({
     },
     loginUserAction: (state, action) => {
       state.token = action.payload.token
+      state.user = action.payload.user
     },
     clearAuthStateAction: (state) => {
       state.token = ''

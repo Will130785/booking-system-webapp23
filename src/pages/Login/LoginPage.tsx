@@ -75,9 +75,6 @@ const LoginPage = () => {
             buttonText='Login'
             onClick={handleSubmit}
           />
-          {response && response.data && (
-            <p>{response.data.message}</p>
-          )}
         </div>
       </Card>
     </div>

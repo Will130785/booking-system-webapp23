@@ -9,6 +9,7 @@ export const handleLogin = async (fields: ILoginFormFields) => {
     if (res && res.data) {
       // save token to local storage and store
       localStorage.setItem('token', res.data.token)
+      localStorage.setItem('user', JSON.stringify(res.data.user))
       return {
         success: true,
         data: res.data

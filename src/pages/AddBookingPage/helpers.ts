@@ -3,14 +3,14 @@ const addBooking = bookingService.addBooking
 import { IResponseError } from '../../types/Errors'
 import { IAddBookingFormFields } from './types'
 
-export const handleAddBooking = async (fields: IAddBookingFormFields, token?: string) => {
-  console.log('TEST')
+export const handleAddBooking = async (fields: IAddBookingFormFields, token?: string, userId?: string) => {
   try {
     const res = await addBooking(fields)
     if (res && res.data) {
       return {
         success: true,
-        data: res.data
+        data: res.data,
+        navigateTo: '/all-bookings'
       }
     }
   } catch (err) {

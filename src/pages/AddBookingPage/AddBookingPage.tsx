@@ -64,9 +64,6 @@ const AddBookingPage = () => {
             buttonText='Add Booking'
             onClick={handleSubmit}
           />
-          {response && response.data && (
-            <p>{response.data.message}</p>
-          )}
         </div>
       </Card>
     </div>
